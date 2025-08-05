@@ -6,11 +6,11 @@ authors = [
     {name = "17matb",email = "147427088+17matb@users.noreply.github.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "pandas (>=2.3.1,<3.0.0)",
-    "streamlit (>=1.47.1,<2.0.0)",
-    "fastapi (>=0.116.1,<0.117.0)"
+    "fastapi (>=0.116.1,<0.117.0)",
+    "streamlit (>=1.47.1,<2.0.0)"
 ]
 
 
