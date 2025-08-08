@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Titre de la page
-st.title("📊 Statistiques Générales")
+st.title("Statistiques Générales")
 
 # Appel API à la route /stats/
 API_URL = "http://localhost:8000/stats/"
@@ -19,19 +19,19 @@ try:
     stats = response.json()
 
     # subheader pour mettre un format texte "en tête"
-    st.subheader("🧮 Indicateurs clés")
+    st.subheader("Indicateurs clés")
 
     # Affichage sous forme de colonnes (mise en page)
     col1, col2, col3 = st.columns(3)
-    col1.metric("​🧾 Total Patients", stats['total_patients'])
-    col2.metric("🎂 Âge moyen", f"{stats['average_age']} ans")
-    col3.metric("🧠 Taux d’AVC", f"{stats['stroke_rate'] * 100:.1f}%")
+    col1.metric("​Total Patients", stats['total_patients'])
+    col2.metric("Âge moyen", f"{stats['average_age']} ans")
+    col3.metric("Taux d’AVC", f"{stats['stroke_rate'] * 100:.1f}%")
 
     # Séparateur visuel
     st.markdown("---")
 
     # Titre de la section suivante
-    st.subheader("👥 Répartition par genre (%)")
+    st.subheader("Répartition par genre (%)")
 
     # Récupération des données brutes
     original_gender_data = stats['gender_rate']  # Dictionnaire : {male: %, female: %, other: %}
