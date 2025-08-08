@@ -9,7 +9,7 @@ import pandas as pd
 
 URL = 'http://0.0.0.0:8000/patients'
 
-def fetch_data(gender, stroke, max_age):
+def fetch_data(gender = None, stroke = None, max_age = None):
     try:
         params = {
             'gender': gender,
@@ -24,7 +24,7 @@ def fetch_data(gender, stroke, max_age):
         print(f'error: {e}')
 
 st.write('# Données')
-st.write("Nous vous présentons des données issues du dataset Kaggle Healthcare Stroke Data. Vous pouvez explorer ces informations et utiliser différents paramètres pour filtrer les patients selon vos besoins.")
+st.write("Voici des données issues du dataset Kaggle Healthcare Stroke Data. Vous pouvez explorer ces informations et utiliser différents paramètres pour filtrer les patients selon vos besoins.")
 
 st.write('## Filtrer les données')
 options = {
@@ -41,7 +41,7 @@ options = {
 }
 col1, col2, col3 = st.columns(3)
 gender = col1.selectbox('Genre', [i for i in options.get('gender')], accept_new_options=False, format_func=lambda x:  options.get('gender').get(x))
-stroke = col2.segmented_control('Personnes ayant eu un AVC', [i for i in options.get('stroke')], width='stretch', format_func=lambda x:  options.get('stroke').get(x))
+stroke = col2.segmented_control('Patients ayant eu un AVC', [i for i in options.get('stroke')], width='stretch', format_func=lambda x:  options.get('stroke').get(x))
 max_age = col3.number_input('Age maximum', step=1, min_value=0)
 # st.write(f'gender: {gender}, stroke: {stroke}, max_age: {max_age}')
 
