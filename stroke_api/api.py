@@ -14,18 +14,16 @@ def get_patients(gender: str = None, stroke: int = None, max_age: float = None):
     return result
 
 # TODO décommenter et compléter
+# Gérer le cas où l'id de patient passé en paramètre n'existe pas
 @router.get("/patients/{patient_id}")
 def get_patients_by_id(patient_id: int = None):
     result = filters.filter_patient_by_id(patient_id)
     return result
-# Gérer le cas où l'id de patient passé en paramètre n'existe pas
 
 # TODO Ajout de la route stats
 @router.get('/stats/')
 def get_stats():
-    # Fournit des statistiques agrégées sur les patients (ex. : nb total de patients, âge moyen, taux d’AVC, répartition hommes/femmes).
     df = filters.stroke_data.copy()
-
     output = {
         'total_patients': int(df['id'].count()),
         'average_age': float(df['age'].mean().round(2)),
