@@ -14,7 +14,7 @@ def filter_patient(gender: Literal['male', 'female', 'other'] = None, stroke: Li
         df = df.loc[df['gender'] == gender]
     if stroke is not None:
         df = df.loc[df['stroke'] == stroke]
-    if max_age is not None:
+    if max_age != 0 and max_age is not None:
         df = df.loc[df['age'] <= max_age]
 
     result = df.to_dict('records')
